@@ -1,3 +1,3 @@
 # sci-MI.github.io
 
-Website for the Science Mentorship Institute, which runs mentorship program in neuroscience.
+Website for the Science Mentorship Institute, which runs its flagship neuroscience mentorship program (NMP).
