@@ -2531,7 +2531,8 @@ input, select, textarea {
 			margin: 0 0 1.3em 0;
 		}
 
-			.icon.major:before {
+			
+			.major:before {
 				font-size: 1.25em;
 			}
 
