@@ -1,0 +1,15 @@
+available-roles,pretty-print,category
+founder,Founder,exec
+pres,President,exec
+vp,Vice President,exec
+treasurer,Treasurer,exec
+ceo,CEO,exec
+coo,COO,exec
+cfo,CFO,exec
+cao,Chief Academic Officer,exec
+cco,Chief Communications Officer,exec
+bio-direct,Biology Program Director,admin
+cs-direct,Computer Science Program Director,admin
+comp-direct,Computational Director,admin
+prog-admin,Program Administrator,admin
+mentor,Mentor,mentor
