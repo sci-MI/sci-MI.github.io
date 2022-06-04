@@ -131,8 +131,8 @@ function first_where(df, col, val) {
 function init_bioblock(tags, roles, data) {
 	console.log("roles: " + roles);
 	// availableTags = tags;
-	availableRoles = roles;
-	staffData = data;
+	availableRoles = $.csv.toObjects(roles);
+	staffData = $.csv.toObjects(data);
 	// let's first saturate the bioblock with dynamically generated categories
 	
 	for (var category in categories) { // loop over our categories
@@ -149,7 +149,6 @@ function init_bioblock(tags, roles, data) {
 		bioBlock.appendChild(newSection);
 	}
 	
-	var staffData = $.csv.toObjects(staffData)
 	console.log(staffData[0]);
 	/*var staffData = [{
 		"first-name": "Ally",
