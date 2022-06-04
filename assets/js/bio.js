@@ -23,7 +23,7 @@ function init() {
 	
 	fetch('assets/data/available-tags.csv')
 		.then(response => response.text())
-		.then(data => console.log(data))
+		.then(data => availableTags = data)
 	
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
@@ -140,7 +140,7 @@ function init_bioblock() {
 		categoryBlocks[category] = newSection; // store our new section
 		bioBlock.appendChild(newSection);
 	}
-	
+	console.log(staffData);
 	var staffData = $.csv.toObjects(staffData)
 	/*var staffData = [{
 		"first-name": "Ally",
