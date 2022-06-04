@@ -171,4 +171,12 @@ function init_bioblock(data) {
 		
 		categoryBlocks["exec"].appendChild(section);
 	}
+	
+	loadMain();
+}
+
+function loadMain() {
+	var script = document.createElement('script');
+	script.src = "assets/js/main.js";
+	document.documentElement.firstChild.appendChild(script);
 }
