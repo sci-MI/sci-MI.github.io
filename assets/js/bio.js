@@ -28,6 +28,7 @@ function init() {
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
 		.then(data => staffData = data)
+		.then(staffData => init_bioblock())
 	
 	availableTags = {
 		"neuroscience": "rgb(201, 127, 111)", 
@@ -42,7 +43,7 @@ function init() {
 		"ceo": "CEO"
 	};
 
-	init_bioblock();
+	
 }
 
 init(); // we need this to init before main.js at least (for dynamic img adjustments)
