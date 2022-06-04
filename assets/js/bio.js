@@ -20,15 +20,21 @@ function init() {
 	fetch('assets/data/available-roles.csv')
 		.then(response => response.text())
 		.then(data => availableRoles = data)
+		.then(() => {
+			fetch('assets/data/available-tags.csv')
+				.then(response => response.text())
+				.then(data => availableTags = data)
+				.then(() => {
+					fetch('assets/data/staff-data.csv')
+						.then(response => response.text())
+						.then(data => staffData = data)
+						.then(() => init_bioblock(availableRoles, availableTags, staffData))
+				})
+		})
 	
-	fetch('assets/data/available-tags.csv')
-		.then(response => response.text())
-		.then(data => availableTags = data)
 	
-	fetch('assets/data/staff-data.csv')
-		.then(response => response.text())
-		.then(data => staffData = data)
-		.then(() => init_bioblock(staffData))
+	
+	
 	
 	availableTags = {
 		"neuroscience": "rgb(201, 127, 111)", 
@@ -37,11 +43,11 @@ function init() {
 		"biology": "rgb(145, 201, 158)", 
 		"comp-sci": "rgb(142, 133, 199)"
 	}
-	availableRoles = {
+	/*availableRoles = {
 		"founder": "Founder",
 		"pres": "President",
 		"ceo": "CEO"
-	};
+	};*/
 
 	
 }
@@ -53,7 +59,7 @@ init(); // we need this to init before main.js at least (for dynamic img adjustm
 
 
 
-function Section(header_1=null, header_2=null, imgs=[],content=[],tags=[]) {
+function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 	var section = document.createElement("section");
 	
 	for (var i = 0; i < imgs.length; i++) {
@@ -90,12 +96,13 @@ function Section(header_1=null, header_2=null, imgs=[],content=[],tags=[]) {
 			h1.appendChild(tagBox);
 		}
 	}
-	
-	
-	
-	if (header_2) {
+
+	if (roles.length > 0) {
 		var h3 = document.createElement("h3");
-		h3.innerHTML = header_2
+		for (var i = 0; i < roles.length; i++) {
+			roles[i] = first_where(availableRoles, "available-roles", "founder")["pretty-print"]
+		}
+		h3.innerHTML = roles.join(", ");
 		inner.appendChild(h3);
 	}
 	
@@ -111,20 +118,19 @@ function Section(header_1=null, header_2=null, imgs=[],content=[],tags=[]) {
 	return section;
 }
 
-
-
-function apply_prettify(list, prettifier) {
-	var res = [];
-	for (var l = 0; l < list.length; l++) {
-		res.push(prettifier[list[l]]);
+function first_where(df, col, val) {
+	for (var k = 0; k < df.length; k++) {
+		if (df[k][col] == val)
+			return df[k];
 	}
-	return res;
 }
 
 
 
 
-function init_bioblock(data) {
+function init_bioblock(tags, roles, data) {
+	// availableTags = tags;
+	availableRoles = roles;
 	staffData = data;
 	// let's first saturate the bioblock with dynamically generated categories
 	
@@ -166,15 +172,17 @@ function init_bioblock(data) {
 		console.log(role);
 		console.log(role.split("/"));
 		
+		var roles = role.split("/");
+		
 		var section = Section(header_1=firstName + " " + lastName,
-			header_2=apply_prettify(role.split("/"), availableRoles).join(", "),
+			roles=roles,
 			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
 			content=biotext.split("#"),
 			tags=(tags == "" ? [] : tags.split("/")));
 		
+		var category = roles[0]
 		
-		
-		categoryBlocks["exec"].appendChild(section);
+		categoryBlocks["exec"].appendChild(section); // change this
 	}
 	
 	loadMain();
