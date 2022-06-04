@@ -28,6 +28,7 @@ function init() {
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
 		.then(data => staffData = data)
+		.then(res => console.log(staffData))
 		.then(res => init_bioblock())
 	
 	availableTags = {
