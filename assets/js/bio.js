@@ -100,7 +100,7 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 	if (roles.length > 0) {
 		var h3 = document.createElement("h3");
 		for (var i = 0; i < roles.length; i++) {
-			roles[i] = first_where(availableRoles, "available-roles", "founder")["pretty-print"]
+			roles[i] = first_where(availableRoles, "available-roles", roles[i])["pretty-print"]
 		}
 		h3.innerHTML = roles.join(", ");
 		inner.appendChild(h3);
@@ -120,8 +120,9 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 
 function first_where(df, col, val) {
 	for (var k = 0; k < df.length; k++) {
-		if (df[k][col] == val)
+		if (df[k][col] == val) {
 			return df[k];
+		}
 	}
 }
 
@@ -131,6 +132,15 @@ function first_where(df, col, val) {
 function init_bioblock(tags, roles, data) {
 	console.log("roles: " + roles);
 	// availableTags = tags;
+	availableTags = {
+		"neuroscience": "rgb(201, 127, 111)", 
+		"cog-sci": "rgb(214, 141, 161)", 
+		"computation": "rgb(161, 175, 201)", 
+		"biology": "rgb(145, 201, 158)", 
+		"comp-sci": "rgb(142, 133, 199)"
+	}
+	
+	
 	availableRoles = $.csv.toObjects(roles);
 	staffData = $.csv.toObjects(data);
 	// let's first saturate the bioblock with dynamically generated categories
@@ -180,9 +190,9 @@ function init_bioblock(tags, roles, data) {
 			content=biotext.split("#"),
 			tags=(tags == "" ? [] : tags.split("/")));
 		
-		var category = roles[0]
+		var category = first_where(availableRoles, "available-roles", roles[0])["category"]
 		
-		categoryBlocks["exec"].appendChild(section); // change this
+		categoryBlocks[category].appendChild(section); // change this
 	}
 	
 	loadMain();
