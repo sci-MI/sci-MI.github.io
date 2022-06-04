@@ -159,7 +159,7 @@ function init_bioblock(data) {
 		var role = staffData[j]["role"]
 		var biotext = staffData[j]["biotext"]
 		var tags = staffData[j]["tags"]
-		var imgname = staffData[j]["imgname"]
+		var imgname = staffData[j]["img-name"]
 		
 		//"img-" + (imgname == "" ? firstName.toLowerCase() : imgname)
 		
