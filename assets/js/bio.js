@@ -129,6 +129,7 @@ function first_where(df, col, val) {
 
 
 function init_bioblock(tags, roles, data) {
+	console.log("roles: " + roles);
 	// availableTags = tags;
 	availableRoles = roles;
 	staffData = data;
