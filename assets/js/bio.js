@@ -163,11 +163,16 @@ function init_bioblock(data) {
 		
 		//"img-" + (imgname == "" ? firstName.toLowerCase() : imgname)
 		
+		console.log(role);
+		console.log(role.split("/"));
+		
 		var section = Section(header_1=firstName + " " + lastName,
 			header_2=apply_prettify(role.split("/"), availableRoles).join(", "),
 			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
 			content=biotext.split("#"),
-			tags=tags.split("/"));
+			tags=(tags == "" ? [] : tags.split("/")));
+		
+		
 		
 		categoryBlocks["exec"].appendChild(section);
 	}
