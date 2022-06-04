@@ -28,7 +28,6 @@ function init() {
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
 		.then(data => staffData = data)
-		.then(() => console.log(staffData))
 		.then(() => init_bioblock(staffData))
 	
 	availableTags = {
@@ -142,8 +141,9 @@ function init_bioblock(data) {
 		categoryBlocks[category] = newSection; // store our new section
 		bioBlock.appendChild(newSection);
 	}
-	console.log(staffData);
+	
 	var staffData = $.csv.toObjects(staffData)
+	console.log(staffData[0]);
 	/*var staffData = [{
 		"first-name": "Ally",
 		"last-name": "Kim",
@@ -165,7 +165,7 @@ function init_bioblock(data) {
 		
 		var section = Section(header_1=firstName + " " + lastName,
 			header_2=apply_prettify(role.split("/"), availableRoles).join(", "),
-			imgs=["img-" + (imgname == "" ? firstName.toLowerCase() : imgname)],
+			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
 			content=biotext.split("#"),
 			tags=tags.split("/"));
 		
