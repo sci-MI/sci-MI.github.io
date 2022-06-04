@@ -28,7 +28,7 @@ function init() {
 					fetch('assets/data/staff-data.csv')
 						.then(response => response.text())
 						.then(data => staffData = data)
-						.then(() => init_bioblock(availableRoles, availableTags, staffData))
+						.then(() => init_bioblock(availableTags, availableRoles, staffData))
 				})
 		})
 	
