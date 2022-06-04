@@ -23,12 +23,12 @@ function init() {
 	
 	fetch('assets/data/available-tags.csv')
 		.then(response => response.text())
-		.then(data => availableTags = data)
+		.then(data => console.log(data))
 	
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
 		.then(data => staffData = data)
-		.then(staffData => init_bioblock())
+		.then(res => init_bioblock())
 	
 	availableTags = {
 		"neuroscience": "rgb(201, 127, 111)", 
