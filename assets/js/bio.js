@@ -28,8 +28,8 @@ function init() {
 	fetch('assets/data/staff-data.csv')
 		.then(response => response.text())
 		.then(data => staffData = data)
-		.then(res => console.log(staffData))
-		.then(res => init_bioblock())
+		.then(() => console.log(staffData))
+		.then(() => init_bioblock(staffData))
 	
 	availableTags = {
 		"neuroscience": "rgb(201, 127, 111)", 
@@ -125,7 +125,8 @@ function apply_prettify(list, prettifier) {
 
 
 
-function init_bioblock() {
+function init_bioblock(data) {
+	staffData = data;
 	// let's first saturate the bioblock with dynamically generated categories
 	
 	for (var category in categories) { // loop over our categories
