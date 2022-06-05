@@ -3934,11 +3934,14 @@ input, select, textarea {
 	border:none;
 	border-radius:.5em;
 	color:rgb(110,110,110);
-	padding:1em;
+	padding:.6em;
 	padding-left:1em;
 	width: 50%;
+	margin-bottom:.5em;
+	transition: color .25s;
 }
 
 input.searchbar:focus {
-    outline-width: 0;
+	outline-width: 0;
+	color:rgb(150,150,150);
 }
