@@ -6,6 +6,10 @@ var availableRoles;
 var availableTags;
 var staffData;
 
+var activeTags = [];
+
+var inactiveTagColour = "rgb(150,150,150)"
+
 // add more categories here if desired
 var categories = {
 	"exec": "Executive Team",
@@ -72,9 +76,24 @@ function SectionSearch() {
 	var tagBox = document.createElement("div");
 	for (var i = 0; i < availableTags.length; i++) {
 		var tag = document.createElement("div");
-		tag.style.backgroundColor = first_where(availableTags, "available-tags", availableTags[i]["available-tags"])["colour"]
+		tag.style.backgroundColor = inactiveTagColour
 		tag.classList.add("tag");
 		tag.innerHTML = "# " + availableTags[i]["available-tags"];
+		tag.id = availableTags[i]["available-tags"]
+		
+		tag.onclick = function(e) {
+			var tagname = e.target.id;
+			if (activeTags.contains(tagname)) {
+				e.target.classList.remove("active");
+				e.target.backgroundColor = inactiveTagColour;
+				activeTags.remove(tagname);
+			} else {
+				e.target.classList.add("active");
+				e.target.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
+				activeTags.push(tagname);
+			}
+		}
+		
 		tagBox.appendChild(tag);
 	}
 	h5.appendChild(tagBox);

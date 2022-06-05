@@ -3935,10 +3935,11 @@ input, select, textarea {
 	border-radius:.5em;
 	color:rgb(150,150,150);
 	padding:.6em;
-	padding-left:1em;
+	padding-left:1.3em;
 	width: 50%;
 	margin-bottom:.5em;
 	font-size:.6em;
+	cursor:pointer;
 	transition: font-size .25s;
 	transition: color .25s;
 	
