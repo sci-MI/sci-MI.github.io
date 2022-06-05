@@ -142,7 +142,7 @@ function init_bioblock(tagsDF, rolesDF, data) {
 	
 	
 	availableRoles = $.csv.toObjects(rolesDF);
-	console.log("roles: " + availableRoles);
+	console.log(availableRoles);
 	
 	staffData = $.csv.toObjects(data);
 	// let's first saturate the bioblock with dynamically generated categories
