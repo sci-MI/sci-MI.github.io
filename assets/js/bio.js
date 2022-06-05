@@ -8,7 +8,7 @@ var staffData;
 
 var activeTags = [];
 
-var inactiveTagColour = "rgb(150,150,150)"
+var inactiveTagColour = "rgb(180,180,180)"
 
 // add more categories here if desired
 var categories = {
@@ -83,7 +83,7 @@ function SectionSearch() {
 		
 		tag.onclick = function(e) {
 			var tagname = e.target.id;
-			if (activeTags.contains(tagname)) {
+			if (activeTags.includes(tagname)) {
 				e.target.classList.remove("active");
 				e.target.backgroundColor = inactiveTagColour;
 				activeTags.remove(tagname);
