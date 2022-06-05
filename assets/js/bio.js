@@ -135,8 +135,6 @@ function init_bioblock(tagsDF, rolesDF, data) {
 	
 	init_searchbar();
 	
-	return;
-	
 	// let's first saturate the bioblock with dynamically generated categories
 	
 	for (var category in categories) { // loop over our categories
