@@ -17,7 +17,7 @@ var categories = {
 
 function init() {
 	bioBlock = document.getElementById("bio");
-	searchBar = document.getElementById("searchBar");
+	searchBar = document.getElementById("searchbar");
 	
 	fetch('assets/data/available-roles.csv')
 		.then(response => response.text())
