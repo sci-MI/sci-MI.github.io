@@ -73,7 +73,7 @@ function SectionSearch() {
 	var searchDiv = document.createElement("div");
 	var search = document.createElement("input");
 	search.classList.add("searchbar");
-	search.placeholder = "> Name of Mentor";
+	search.placeholder = "> Search by Name";
 	search.spellcheck = false;
 	searchDiv.appendChild(search);
 	h3.appendChild(searchDiv);
@@ -97,11 +97,11 @@ function SectionSearch() {
 			var tagname = e.target.id;
 			if (activeTags.includes(tagname)) {
 				e.target.classList.remove("active");
-				e.target.backgroundColor = inactiveTagColour;
+				e.target.style.backgroundColor = inactiveTagColour;
 				activeTags = removeAll(activeTags, tagname);
 			} else {
 				e.target.classList.add("active");
-				e.target.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
+				e.target.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
 				activeTags.push(tagname);
 			}
 		}
