@@ -1,4 +1,5 @@
 var bioBlock;
+var searchBar;
 var categoryBlocks = {};
 
 var availableRoles;
@@ -15,7 +16,8 @@ var categories = {
 
 
 function init() {
-	bioBlock = document.getElementById("wrapper");
+	bioBlock = document.getElementById("bio");
+	searchBar = document.getElementById("searchBar");
 	
 	fetch('assets/data/available-roles.csv')
 		.then(response => response.text())
@@ -109,14 +111,30 @@ function first_where(df, col, val) {
 }
 
 
+var init_searchbar() {
+	var section = document.createElement("section");
+	section.id = "bar";
+	section.classList.add("wrapper","style2","spotlights")
+
+	// add the section head
+	section.appendChild(Section(header_1="Search for a Mentor!"));
+	
+	var search = document.createElement("input");
+	
+	section.appendChild(search);
+	
+	searchBar.appendChild(section);
+}
 
 
 function init_bioblock(tagsDF, rolesDF, data) {
 	
 	availableTags = $.csv.toObjects(tagsDF);
 	availableRoles = $.csv.toObjects(rolesDF);
-	
 	staffData = $.csv.toObjects(data);
+	
+	init_searchbar();
+	
 	
 	// let's first saturate the bioblock with dynamically generated categories
 	
@@ -149,6 +167,8 @@ function init_bioblock(tagsDF, rolesDF, data) {
 			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
 			content=biotext.split("#"),
 			tags=(tags == "" ? [] : tags.split("/")));
+		
+		staffData[j]["section"] = section;
 		
 		var category = first_where(availableRoles, "available-roles", roles[0])["category"]
 		

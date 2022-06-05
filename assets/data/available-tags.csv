@@ -1,6 +1,6 @@
-available-tags
-neuroscience
-cog-sci
-computation
-biology
-comp-sci
+available-tags,colour
+neuroscience,"rgb(201, 127, 111)"
+cog-sci,"rgb(214, 141, 161)"
+computation,"rgb(161, 175, 201)"
+biology,"rgb(145, 201, 158)"
+comp-sci,"rgb(142, 133, 199)"
