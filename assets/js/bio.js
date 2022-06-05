@@ -52,9 +52,9 @@ function SectionSearch() {
 	inner.appendChild(h1);
 	
 	var tagBox = document.createElement("div");
-	for (var i = 0; i < availableTags["available-tags"].length; i++) {
+	for (var i = 0; i < availableTags.length; i++) {
 		var tag = document.createElement("div");
-		tag.style.backgroundColor = first_where(availableTags, "available-tags", availableTags["available-tags"][i])["colour"]
+		tag.style.backgroundColor = first_where(availableTags, "available-tags", availableTags[i]["available-tags"])["colour"]
 		tag.classList.add("tag");
 		tag.innerHTML = "# " + tags[i];
 		tagBox.appendChild(tag);
