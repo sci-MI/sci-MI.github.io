@@ -3938,18 +3938,18 @@ input, select, textarea {
 	padding-left:1em;
 	width: 50%;
 	margin-bottom:.5em;
-	font-size:1em;
+	font-size:.6em;
 	transition: font-size .25s;
 	transition: color .25s;
 	
 }
 
-.tag:hover {
-	font-size:1.1em;
+.searchbar:hover {
+	font-size:.7em;
 }
 
 input.searchbar:focus {
 	outline-width: 0;
 	color:rgb(110,110,110);
-	font-size:1.1em;
+	font-size:.7em;
 }
