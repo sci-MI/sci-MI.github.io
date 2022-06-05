@@ -246,8 +246,8 @@ function removeAllChildNodes(parent) {
 
 function load_bios(staffData) {
 	// clear the bioBlock;
-	for (var k = 0; k < bioBlock.length; k++) {
-		removeAllChildNodes(bioBlock[k]);
+	for (var category in categoryBlocks) {
+		removeAllChildNodes(categoryBlocks[category]);
 	}
 	
 	for (var j = 0; j < staffData.length; j++) {
