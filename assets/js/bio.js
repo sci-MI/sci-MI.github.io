@@ -58,6 +58,9 @@ function removeAll(arr, value) {
 
 function apply_filter() {
 	var tokens = search.value == "" ? null : search.value.split(" ");	
+	
+	console.log(activeTags);
+	
 	for (var k = 0; k < staffData.length; k++) {
 		var tags = staffData[k]["tags"].split("/");
 		staffData[k]["section"].style.display = "none";
@@ -72,6 +75,7 @@ function apply_filter() {
 		if (activeTags.length > 0) {
 			for (var t = 0; t < activeTags.length; t++) {
 				if (!tags.includes(activeTags[t])) {
+					console.log(tags);
 					continue;
 				}
 			}
