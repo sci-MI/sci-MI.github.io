@@ -71,7 +71,7 @@ function apply_filter() {
 		
 		if (activeTags.length > 0) {
 			for (var t = 0; t < activeTags.length; t++) {
-				if (tags.includes(activeTags[t])) {
+				if (!tags.includes(activeTags[t])) {
 					continue;
 				}
 			}
