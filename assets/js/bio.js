@@ -60,15 +60,15 @@ function apply_filter() {
 	var tokens = search.value.split(" ");
 	var subsetData = [];
 	
-	for (var k = 0; k < df.length; k++) {
-		var tags = df[k]["tags"].split("/");
+	for (var k = 0; k < staffData.length; k++) {
+		var tags = staffData[k]["tags"].split("/");
 		
 		for (var t = 0; t < activeTags.length; t++) {
 			if (tags.includes(activeTags[t]))
 				continue;
 		}
 		
-		subsetDF.push(df[k]);
+		subsetDF.push(staffData[k]);
 	}
 	
 	load_bios(subsetData);
