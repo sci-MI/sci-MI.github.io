@@ -57,7 +57,21 @@ function removeAll(arr, value) {
 }
 
 function apply_filter() {
+	var tokens = search.value.split(" ");
+	var subsetData = [];
 	
+	for (var k = 0; k < df.length; k++) {
+		var tags = df[k]["tags"].split("/");
+		
+		for (var t = 0; t < activeTags.length; t++) {
+			if (tags.includes(activeTags[t]))
+				continue;
+		}
+		
+		subsetDF.push(df[k]);
+	}
+	
+	load_bios(subsetData);
 }
 
 
@@ -210,6 +224,42 @@ function init_searchbar() {
 	searchBar.appendChild(section);
 }
 
+function removeAllChildNodes(parent) {
+	while (parent.firstChild) {
+		parent.removeChild(parent.firstChild);
+	}
+}
+
+function load_bios(staffData) {
+	// clear the bioBlock;
+	for (var k = 0; k < bioBlock.length; k++) {
+		removeAllChildNodes(bioBlock[k]);
+	}
+	
+	for (var j = 0; j < staffData.length; j++) {
+		var firstName = staffData[j]["first-name"]
+		var lastName = staffData[j]["last-name"]
+		var role = staffData[j]["role"]
+		var biotext = staffData[j]["biotext"]
+		var tags = staffData[j]["tags"]
+		var imgname = staffData[j]["img-name"]
+						
+		var roles = role.split("/");
+		
+		var section = Section(header_1=firstName + " " + lastName,
+			roles=roles,
+			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
+			content=biotext.split("#"),
+			tags=(tags == "" ? [] : tags.split("/")));
+		
+		staffData[j]["section"] = section;
+		
+		var category = first_where(availableRoles, "available-roles", roles[0])["category"]
+		
+		categoryBlocks[category].appendChild(section); // change this
+	}
+}
+
 
 function init_bioblock(tagsDF, rolesDF, data) {
 	
@@ -235,28 +285,7 @@ function init_bioblock(tagsDF, rolesDF, data) {
 		bioBlock.appendChild(newSection);
 	}
 	
-	for (var j = 0; j < staffData.length; j++) {
-		var firstName = staffData[j]["first-name"]
-		var lastName = staffData[j]["last-name"]
-		var role = staffData[j]["role"]
-		var biotext = staffData[j]["biotext"]
-		var tags = staffData[j]["tags"]
-		var imgname = staffData[j]["img-name"]
-						
-		var roles = role.split("/");
-		
-		var section = Section(header_1=firstName + " " + lastName,
-			roles=roles,
-			imgs=["img-" + (imgname ? imgname : firstName.toLowerCase())],
-			content=biotext.split("#"),
-			tags=(tags == "" ? [] : tags.split("/")));
-		
-		staffData[j]["section"] = section;
-		
-		var category = first_where(availableRoles, "available-roles", roles[0])["category"]
-		
-		categoryBlocks[category].appendChild(section); // change this
-	}
+	load_bios(staffData);
 	
 	loadMain();
 }
