@@ -3945,11 +3945,29 @@ input, select, textarea {
 }
 
 .searchbar:hover {
-	font-size:.7em;
+	/*font-size:.7em;*/
+	color:rgb(110,110,110);
 }
 
 input.searchbar:focus {
 	outline-width: 0;
 	color:rgb(110,110,110);
-	font-size:.7em;
+	/*font-size:.7em;*/
+}
+
+::-webkit-input-placeholder {
+ color:rgb(180,180,180);
+ opacity:1;
+}
+:-moz-placeholder {
+ color:rgb(180,180,180);
+ opacity:1;
+}
+::-moz-placeholder {
+ color:rgb(180,180,180);
+ opacity:1;
+}
+:-ms-input-placeholder {
+ color:rgb(180,180,180);
+ opacity:1;
 }

@@ -57,7 +57,7 @@ function SectionSearch() {
 	var searchDiv = document.createElement("div");
 	var search = document.createElement("input");
 	search.classList.add("searchbar");
-	search.placeholder = "Name of Mentor";
+	search.placeholder = "> Name of Mentor";
 	search.spellcheck = false;
 	searchDiv.appendChild(search);
 	h3.appendChild(searchDiv);
