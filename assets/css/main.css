@@ -3932,8 +3932,9 @@ input, select, textarea {
 
 .searchbar {
 	border:none;
-	border-radius:.2em;
+	border-radius:.5em;
 	color:rgb(110,110,110);
 	padding:.5em;
+	padding-left:1em;
 	width: 50%;
 }

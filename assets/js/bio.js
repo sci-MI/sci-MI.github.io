@@ -51,12 +51,7 @@ function SectionSearch() {
 	h1.innerHTML = "Search for a Mentor!"
 	inner.appendChild(h1);
 	
-	var h2 = document.createElement("h3");
-	h2.innerHTML = "Find by name:"
-	inner.appendChild(h2);
-	
 	var h3 = document.createElement("h2");
-	h3.innerHTML = "Search for a Mentor!"
 	inner.appendChild(h3);
 	
 	var searchDiv = document.createElement("div");
