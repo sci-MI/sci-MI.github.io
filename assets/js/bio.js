@@ -99,10 +99,11 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 
 	if (roles.length > 0) {
 		var h3 = document.createElement("h3");
+		var res = []
 		for (var i = 0; i < roles.length; i++) {
-			roles[i] = first_where(availableRoles, "available-roles", roles[i])["pretty-print"]
+			res.push(first_where(availableRoles, "available-roles", roles[i])["pretty-print"])
 		}
-		h3.innerHTML = roles.join(", ");
+		h3.innerHTML = res.join(", ");
 		inner.appendChild(h3);
 	}
 	
@@ -142,7 +143,6 @@ function init_bioblock(tagsDF, rolesDF, data) {
 	
 	
 	availableRoles = $.csv.toObjects(rolesDF);
-	console.log(availableRoles);
 	
 	staffData = $.csv.toObjects(data);
 	// let's first saturate the bioblock with dynamically generated categories
@@ -161,7 +161,6 @@ function init_bioblock(tagsDF, rolesDF, data) {
 		bioBlock.appendChild(newSection);
 	}
 	
-	console.log(staffData[0]);
 	/*var staffData = [{
 		"first-name": "Ally",
 		"last-name": "Kim",
@@ -178,12 +177,7 @@ function init_bioblock(tagsDF, rolesDF, data) {
 		var biotext = staffData[j]["biotext"]
 		var tags = staffData[j]["tags"]
 		var imgname = staffData[j]["img-name"]
-		
-		//"img-" + (imgname == "" ? firstName.toLowerCase() : imgname)
-		
-		console.log(role);
-		console.log(role.split("/"));
-		
+						
 		var roles = role.split("/");
 		
 		var section = Section(header_1=firstName + " " + lastName,
