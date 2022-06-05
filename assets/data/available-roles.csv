@@ -3,6 +3,7 @@ founder,Founder,exec
 pres,President,exec
 vp,Vice President,exec
 treasurer,Treasurer,exec
+secretary,Secretary,exec
 ceo,CEO,exec
 coo,COO,exec
 cfo,CFO,exec
