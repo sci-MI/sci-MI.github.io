@@ -31,25 +31,6 @@ function init() {
 						.then(() => init_bioblock(availableTags, availableRoles, staffData))
 				})
 		})
-	
-	
-	
-	
-	
-	availableTags = {
-		"neuroscience": "rgb(201, 127, 111)", 
-		"cog-sci": "rgb(214, 141, 161)", 
-		"computation": "rgb(161, 175, 201)", 
-		"biology": "rgb(145, 201, 158)", 
-		"comp-sci": "rgb(142, 133, 199)"
-	}
-	/*availableRoles = {
-		"founder": "Founder",
-		"pres": "President",
-		"ceo": "CEO"
-	};*/
-
-	
 }
 
 init(); // we need this to init before main.js at least (for dynamic img adjustments)
@@ -88,7 +69,7 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 			var tagBox = document.createElement("div");
 			for (var i = 0; i < tags.length; i++) {
 				var tag = document.createElement("div");
-				tag.style.backgroundColor = availableTags[tags[i]]
+				tag.style.backgroundColor = first_where(availableTags, "available-tags", tags[i])["colour"]
 				tag.classList.add("tag");
 				tag.innerHTML = "# " + tags[i];
 				tagBox.appendChild(tag);
@@ -132,19 +113,11 @@ function first_where(df, col, val) {
 
 function init_bioblock(tagsDF, rolesDF, data) {
 	
-	// availableTags = tags;
-	availableTags = {
-		"neuroscience": "rgb(201, 127, 111)", 
-		"cog-sci": "rgb(214, 141, 161)", 
-		"computation": "rgb(161, 175, 201)", 
-		"biology": "rgb(145, 201, 158)", 
-		"comp-sci": "rgb(142, 133, 199)"
-	}
-	
-	
+	availableTags = $.csv.toObjects(tagsDF);
 	availableRoles = $.csv.toObjects(rolesDF);
 	
 	staffData = $.csv.toObjects(data);
+	
 	// let's first saturate the bioblock with dynamically generated categories
 	
 	for (var category in categories) { // loop over our categories
@@ -160,15 +133,6 @@ function init_bioblock(tagsDF, rolesDF, data) {
 		categoryBlocks[category] = newSection; // store our new section
 		bioBlock.appendChild(newSection);
 	}
-	
-	/*var staffData = [{
-		"first-name": "Ally",
-		"last-name": "Kim",
-		"role": "founder/pres/ceo",
-		"biotext": "As the first in her immigrant family to pursue scientific research, Ally witnessed the hurdles in gaining access to research training. She founded Sci-MI with the goal of increasing access to training and empowering diverse scientists.#Beyond Sci-MI, Ally works at the Broad Institute of MIT and Harvard to bridge the diversity gap in genomics research.",
-		"tags": "neuroscience/computation/cog-sci/biology/comp-sci",
-		"imgname": ""
-	}];*/
 	
 	for (var j = 0; j < staffData.length; j++) {
 		var firstName = staffData[j]["first-name"]
