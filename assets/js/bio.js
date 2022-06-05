@@ -8,7 +8,7 @@ var staffData;
 
 var activeTags = [];
 
-var inactiveTagColour = "rgb(180,180,180)"
+var inactiveTagColour = "rgb(165,165,165)"
 
 // add more categories here if desired
 var categories = {
