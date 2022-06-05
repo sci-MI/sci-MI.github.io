@@ -51,6 +51,10 @@ function SectionSearch() {
 	h1.innerHTML = "Search for a Mentor!"
 	inner.appendChild(h1);
 	
+	var h2 = document.createElement("h3");
+	h2.innerHTML = "Filter by tag(s):"
+	inner.appendChild(h2);
+	
 	var tagBox = document.createElement("div");
 	for (var i = 0; i < availableTags.length; i++) {
 		var tag = document.createElement("div");
@@ -59,7 +63,7 @@ function SectionSearch() {
 		tag.innerHTML = "# " + availableTags[i]["available-tags"];
 		tagBox.appendChild(tag);
 	}
-	h1.appendChild(tagBox);
+	h2.appendChild(tagBox);
 	
 	
 	
