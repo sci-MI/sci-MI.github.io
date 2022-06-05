@@ -65,7 +65,7 @@ function apply_filter() {
 		var tags = staffData[k]["tags"].split("/");
 		staffData[k]["section"].style.display = "none";
 		
-		if (tokens) {
+		/*if (tokens) {
 			for (var t = 0; t < tokens.length; t++) {
 				if (!staffData.toLowerCase().includes(tokens[t].toLowerCase()))
 					continue;
@@ -81,7 +81,7 @@ function apply_filter() {
 			}
 		}
 		
-		staffData[k]["section"].style.display = "flex";
+		staffData[k]["section"].style.display = "flex";*/
 	}
 }
 
@@ -240,17 +240,7 @@ function init_searchbar() {
 	searchBar.appendChild(section);
 }
 
-function removeAllChildNodes(parent) {
-	while (parent.firstChild) {
-		parent.removeChild(parent.firstChild);
-	}
-}
-
 function load_bios(staffData) {
-	// clear the bioBlock;
-	for (var category in categoryBlocks) {
-		removeAllChildNodes(categoryBlocks[category]);
-	}
 	
 	for (var j = 0; j < staffData.length; j++) {
 		var firstName = staffData[j]["first-name"]
