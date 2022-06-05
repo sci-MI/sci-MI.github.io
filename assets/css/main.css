@@ -3934,5 +3934,6 @@ input, select, textarea {
 	border:none;
 	border-radius:.2em;
 	color:rgb(110,110,110);
-	padding:.2em;
+	padding:.5em;
+	width: 50%;
 }
