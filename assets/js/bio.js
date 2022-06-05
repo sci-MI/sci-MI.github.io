@@ -57,11 +57,10 @@ function removeAll(arr, value) {
 }
 
 function apply_filter() {
-	var tokens = search.value == "" ? null : search.value.split(" ");
-	var subsetData = [];
-	
+	var tokens = search.value == "" ? null : search.value.split(" ");	
 	for (var k = 0; k < staffData.length; k++) {
 		var tags = staffData[k]["tags"].split("/");
+		staffData[k]["section"].style.display = "none";
 		
 		if (tokens) {
 			for (var t = 0; t < tokens.length; t++) {
@@ -72,15 +71,14 @@ function apply_filter() {
 		
 		if (activeTags.length > 0) {
 			for (var t = 0; t < activeTags.length; t++) {
-				if (tags.includes(activeTags[t]))
+				if (tags.includes(activeTags[t])) {
 					continue;
+				}
 			}
 		}
 		
-		subsetData.push(staffData[k]);
+		staffData[k]["section"].style.display = "flex";
 	}
-	
-	load_bios(subsetData);
 }
 
 
