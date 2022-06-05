@@ -38,6 +38,37 @@ function init() {
 init(); // we need this to init before main.js at least (for dynamic img adjustments)
 
 
+function SectionSearch() {
+	var section = document.createElement("section");
+
+	var contents = document.createElement("div");
+	contents.classList.add("content");
+	
+	var inner = document.createElement("div");
+	inner.classList.add("inner");
+	
+	var h1 = document.createElement("h2");
+	h1.innerHTML = "Search for a Mentor!"
+	inner.appendChild(h1);
+	
+	var tagBox = document.createElement("div");
+	for (var i = 0; i < availableTags["available-tags"].length; i++) {
+		var tag = document.createElement("div");
+		tag.style.backgroundColor = first_where(availableTags, "available-tags", availableTags["available-tags"][i])["colour"]
+		tag.classList.add("tag");
+		tag.innerHTML = "# " + tags[i];
+		tagBox.appendChild(tag);
+	}
+	h1.appendChild(tagBox);
+	
+	
+	
+	contents.appendChild(inner);
+	section.appendChild(contents);
+	
+	return section;
+}
+
 
 
 
@@ -117,12 +148,7 @@ function init_searchbar() {
 	section.classList.add("wrapper","style2","spotlights")
 
 	// add the section head
-	section.appendChild(Section(header_1="Search for a Mentor!"));
-	
-	var search = document.createElement("input");
-	
-	section.appendChild(search);
-	
+	section.appendChild(SectionSearch());
 	searchBar.appendChild(section);
 }
 
