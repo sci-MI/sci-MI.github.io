@@ -55,6 +55,9 @@ function SectionSearch() {
 	h2.innerHTML = "Filter by tag(s):"
 	inner.appendChild(h2);
 	
+	var h3 = document.createElement("h2");
+	inner.appendChild(h3);
+	
 	var tagBox = document.createElement("div");
 	for (var i = 0; i < availableTags.length; i++) {
 		var tag = document.createElement("div");
@@ -63,7 +66,7 @@ function SectionSearch() {
 		tag.innerHTML = "# " + availableTags[i]["available-tags"];
 		tagBox.appendChild(tag);
 	}
-	h2.appendChild(tagBox);
+	h3.appendChild(tagBox);
 	
 	
 	
