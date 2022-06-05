@@ -111,7 +111,7 @@ function first_where(df, col, val) {
 }
 
 
-var init_searchbar() {
+function init_searchbar() {
 	var section = document.createElement("section");
 	section.id = "bar";
 	section.classList.add("wrapper","style2","spotlights")
@@ -135,6 +135,7 @@ function init_bioblock(tagsDF, rolesDF, data) {
 	
 	init_searchbar();
 	
+	return;
 	
 	// let's first saturate the bioblock with dynamically generated categories
 	
