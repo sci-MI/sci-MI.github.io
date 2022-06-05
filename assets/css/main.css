@@ -3935,7 +3935,7 @@ input, select, textarea {
 	border-radius:.5em;
 	color:rgb(150,150,150);
 	padding:.6em;
-	padding-left:1.3em;
+	padding-left:1.1em;
 	width: 50%;
 	margin-bottom:.5em;
 	font-size:.6em;
@@ -3951,6 +3951,7 @@ input, select, textarea {
 }
 
 input.searchbar:focus {
+	cursor:text;
 	outline-width: 0;
 	color:rgb(110,110,110);
 	/*font-size:.7em;*/

@@ -42,6 +42,18 @@ function init() {
 init(); // we need this to init before main.js at least (for dynamic img adjustments)
 
 
+function removeAll(arr, value) {
+  var i = 0;
+  while (i < arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
+
 function SectionSearch() {
 	var section = document.createElement("section");
 
@@ -86,7 +98,7 @@ function SectionSearch() {
 			if (activeTags.includes(tagname)) {
 				e.target.classList.remove("active");
 				e.target.backgroundColor = inactiveTagColour;
-				activeTags.remove(tagname);
+				activeTags = removeAll(activeTags, tagname);
 			} else {
 				e.target.classList.add("active");
 				e.target.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
