@@ -57,15 +57,16 @@ function SectionSearch() {
 	
 	var search = document.createElement("input");
 	search.classList.add("searchbar");
+	search.placeholder = "Name of Mentor";
 	h2.appendChild(search);
 	
 	
 	var h3 = document.createElement("h3");
 	h3.innerHTML = "Filter by tag(s):"
-	inner.appendChild(h2);
+	inner.appendChild(h3);
 	
 	var h4 = document.createElement("h2");
-	inner.appendChild(h3);
+	inner.appendChild(h4);
 	
 	var tagBox = document.createElement("div");
 	for (var i = 0; i < availableTags.length; i++) {

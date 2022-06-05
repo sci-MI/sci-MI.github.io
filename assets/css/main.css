@@ -3929,3 +3929,10 @@ input, select, textarea {
 	font-size:.45em;
   /*background-color: #004369;*/
 }
+
+.searchbar {
+	border:none;
+	border-radius:.2em;
+	color:rgb(110,110,110);
+	padding:.2em;
+}
