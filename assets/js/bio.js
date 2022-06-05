@@ -52,10 +52,19 @@ function SectionSearch() {
 	inner.appendChild(h1);
 	
 	var h2 = document.createElement("h3");
-	h2.innerHTML = "Filter by tag(s):"
+	h2.innerHTML = "Find by name:"
 	inner.appendChild(h2);
 	
-	var h3 = document.createElement("h2");
+	var search = document.createElement("input");
+	search.classList.add("searchbar");
+	h2.appendChild(search);
+	
+	
+	var h3 = document.createElement("h3");
+	h3.innerHTML = "Filter by tag(s):"
+	inner.appendChild(h2);
+	
+	var h4 = document.createElement("h2");
 	inner.appendChild(h3);
 	
 	var tagBox = document.createElement("div");
@@ -66,7 +75,7 @@ function SectionSearch() {
 		tag.innerHTML = "# " + availableTags[i]["available-tags"];
 		tagBox.appendChild(tag);
 	}
-	h3.appendChild(tagBox);
+	h4.appendChild(tagBox);
 	
 	
 	
