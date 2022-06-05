@@ -3923,7 +3923,7 @@ input, select, textarea {
   color: #fff;
 	font-size:.4em;
   transition: font-size .25s;
-	transition: background-color .25s;
+	transition: background-color .1s;
 }
 	
 .tag:hover {

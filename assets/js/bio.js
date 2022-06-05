@@ -96,6 +96,9 @@ function SectionSearch() {
 	search.classList.add("searchbar");
 	search.placeholder = "> Search by Name";
 	search.spellcheck = false;
+	search.onchange = function() {
+		apply_filter();
+	}
 	searchDiv.appendChild(search);
 	h3.appendChild(searchDiv);
 	
@@ -125,6 +128,8 @@ function SectionSearch() {
 				e.target.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
 				activeTags.push(tagname);
 			}
+			
+			apply_filter();
 		}
 		
 		tagBox.appendChild(tag);
