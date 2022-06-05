@@ -1,6 +1,8 @@
 var bioBlock;
 var searchBar;
+var search;
 var categoryBlocks = {};
+
 
 var availableRoles;
 var availableTags;
@@ -8,7 +10,7 @@ var staffData;
 
 var activeTags = [];
 
-var inactiveTagColour = "rgb(165,165,165)"
+var inactiveTagColour = "rgba(0,0,0,0)"
 
 // add more categories here if desired
 var categories = {
@@ -71,7 +73,7 @@ function SectionSearch() {
 	inner.appendChild(h3);
 	
 	var searchDiv = document.createElement("div");
-	var search = document.createElement("input");
+	search = document.createElement("input");
 	search.classList.add("searchbar");
 	search.placeholder = "> Search by Name";
 	search.spellcheck = false;
