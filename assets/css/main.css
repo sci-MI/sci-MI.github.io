@@ -3933,15 +3933,23 @@ input, select, textarea {
 .searchbar {
 	border:none;
 	border-radius:.5em;
-	color:rgb(110,110,110);
+	color:rgb(150,150,150);
 	padding:.6em;
 	padding-left:1em;
 	width: 50%;
 	margin-bottom:.5em;
+	font-size:1em;
+	transition: font-size .25s;
 	transition: color .25s;
+	
+}
+
+.tag:hover {
+	font-size:1.1em;
 }
 
 input.searchbar:focus {
 	outline-width: 0;
-	color:rgb(150,150,150);
+	color:rgb(110,110,110);
+	font-size:1.1em;
 }
