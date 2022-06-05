@@ -57,18 +57,27 @@ function removeAll(arr, value) {
 }
 
 function apply_filter() {
-	var tokens = search.value.split(" ");
+	var tokens = search.value == "" ? null : search.value.split(" ");
 	var subsetData = [];
 	
 	for (var k = 0; k < staffData.length; k++) {
 		var tags = staffData[k]["tags"].split("/");
 		
-		for (var t = 0; t < activeTags.length; t++) {
-			if (tags.includes(activeTags[t]))
-				continue;
+		if (tokens) {
+			for (var t = 0; t < tokens.length; t++) {
+				if (!staffData.toLowerCase().includes(tokens[t].toLowerCase()))
+					continue;
+			}
 		}
 		
-		subsetDF.push(staffData[k]);
+		if (activeTags.length > 0) {
+			for (var t = 0; t < activeTags.length; t++) {
+				if (tags.includes(activeTags[t]))
+					continue;
+			}
+		}
+		
+		subsetData.push(staffData[k]);
 	}
 	
 	load_bios(subsetData);
