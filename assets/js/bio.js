@@ -56,6 +56,11 @@ function removeAll(arr, value) {
   return arr;
 }
 
+function apply_filter() {
+	
+}
+
+
 function SectionSearch() {
 	var section = document.createElement("section");
 
@@ -119,6 +124,8 @@ function SectionSearch() {
 	
 	return section;
 }
+
+
 
 
 
