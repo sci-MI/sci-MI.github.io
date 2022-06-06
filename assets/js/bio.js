@@ -129,7 +129,7 @@ function SectionSearch() {
 	search.spellcheck = false;
 	search.onkeydown=function() {
 		if (event.keyCode==13) { 
-			$('#keyword').blur(); 
+			search.blur();
 			return false;
 		}
 	}
