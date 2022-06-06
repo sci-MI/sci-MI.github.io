@@ -79,7 +79,7 @@ function apply_filter() {
 		if (tokens) {
 			var flag = true;
 			for (var t = 0; t < tokens.length; t++) {
-				if (!staffData[k]["first-name"].toLowerCase().includes(tokens[t].toLowerCase()) || !staffData[k]["last-name"].toLowerCase().includes(tokens[t].toLowerCase())) {
+				if (!staffData[k]["first-name"].toLowerCase().includes(tokens[t].toLowerCase()) && !staffData[k]["last-name"].toLowerCase().includes(tokens[t].toLowerCase())) {
 					flag = false;
 					break;
 				}
