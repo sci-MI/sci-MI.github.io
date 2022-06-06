@@ -59,7 +59,18 @@ function removeAll(arr, value) {
 function apply_filter() {
 	var tokens = search.value == "" ? null : search.value.split(" ");	
 	
-	console.log(activeTags);
+	if (! tokens && activeTags.length == 0) {
+		for (var category in categoryBlocks) {
+			var sectionHead = document.getElementById(category + "-head");
+			sectionHead.style.display = "block";
+		}
+	} else {
+		for (var category in categoryBlocks) {
+			var sectionHead = document.getElementById(category + "-head");
+			sectionHead.style.display = "none";
+		}
+	}
+
 	
 	for (var k = 0; k < staffData.length; k++) {
 		var tags = staffData[k]["tags"].split("/");
@@ -293,9 +304,11 @@ function init_bioblock(tagsDF, rolesDF, data) {
 		newSection.id = category;
 		newSection.classList.add("wrapper","style2","spotlights")
 
+		var sectionHead = Section(header_1=prettyCategory);
+		sectionHead.id = category + "-head";
 		// add the section head
-		newSection.appendChild(Section(header_1=prettyCategory));
-		
+		newSection.appendChild(sectionHead);
+			
 		categoryBlocks[category] = newSection; // store our new section
 		bioBlock.appendChild(newSection);
 	}
