@@ -127,6 +127,12 @@ function SectionSearch() {
 	search.classList.add("searchbar");
 	search.placeholder = "> Search by Name";
 	search.spellcheck = false;
+	search.onkeydown=function() {
+		if (event.keyCode==13) { 
+			$('#keyword').blur(); 
+			return false;
+		}
+	}
 	search.onchange = function() {
 		apply_filter();
 	}
