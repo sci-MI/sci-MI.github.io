@@ -65,23 +65,32 @@ function apply_filter() {
 		var tags = staffData[k]["tags"].split("/");
 		staffData[k]["section"].style.display = "none";
 		
-		/*if (tokens) {
+		if (tokens) {
+			var flag = true;
 			for (var t = 0; t < tokens.length; t++) {
-				if (!staffData.toLowerCase().includes(tokens[t].toLowerCase()))
-					continue;
+				if (!staffData.toLowerCase().includes(tokens[t].toLowerCase())) {
+					flag = false;
+					break;
+				}
 			}
+			if (!flag)
+				continue;
 		}
 		
 		if (activeTags.length > 0) {
+			var flag = true;
 			for (var t = 0; t < activeTags.length; t++) {
 				if (!tags.includes(activeTags[t])) {
-					console.log(tags);
+					flag = false;
+					break;
 					continue;
 				}
 			}
+			if (!flag)
+				continue;
 		}
 		
-		staffData[k]["section"].style.display = "flex";*/
+		staffData[k]["section"].style.display = "flex";
 	}
 }
 
