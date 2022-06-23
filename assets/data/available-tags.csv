@@ -1,6 +1,33 @@
-available-tags,colour
-neuroscience,"rgb(201, 127, 111)"
-cog-sci,"rgb(214, 141, 161)"
-computation,"rgb(161, 175, 201)"
-biology,"rgb(145, 201, 158)"
-comp-sci,"rgb(142, 133, 199)"
+available-tags,colour,tag-category
+academic-advice,"rgb(214, 214, 214)",academic
+ai,"rgb(90, 102, 163)",academic
+behavioral,"rgb(207, 202, 151)",academic
+biochemistry,"rgb(124, 230, 212)",academic
+bioinformatics,"rgb(98, 168, 131)",academic
+biology,"rgb(145, 201, 158)",academic
+chemistry,"rgb(97, 196, 242)",academic
+cog-neuro,"rgb(219, 110, 126)",academic
+cog-sci,"rgb(214, 141, 161)",academic
+comp-sci,"rgb(142, 133, 199)",academic
+computation,"rgb(161, 175, 201)",academic
+linguistics,"rgb(213, 219, 149)",academic
+medical,"rgb(130, 86, 98)",academic
+molecular,"rgb(94, 80, 117)",academic
+neurodevelopment,"rgb(117, 80, 80)",academic
+neuroscience,"rgb(201, 127, 111)",academic
+physics,"rgb(209, 155, 88)",academic
+psychology,"rgb(194, 176, 214)",academic
+black,,personal
+first-gen,,personal
+genderqueer,,personal 
+general-advice,,personal
+hispanic,,personal
+immigrant,,personal
+international,,personal
+latinx,,personal
+lgbtq,,personal
+low-income,,personal
+native-american,,personal
+poc,,personal
+rural,,personal
+woman,,personal
