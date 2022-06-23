@@ -213,15 +213,24 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 		h1.innerHTML = header_1
 		inner.appendChild(h1);
 		if (tags.length > 0) {
-			var tagBox = document.createElement("div");
-			for (var i = 0; i < tags.length; i++) {
-				var tag = document.createElement("div");
-				tag.style.backgroundColor = first_where(availableTags, "available-tags", tags[i])["colour"]
-				tag.classList.add("tag");
-				tag.innerHTML = "# " + tags[i];
-				tagBox.appendChild(tag);
+			var tagBox1 = document.createElement("div");
+			var tagBox2 = document.createElement("div");
+			var addTags = function(mode, tagBox) {
+				for (var i = 0; i < tags.length; i++) {
+					var tag = document.createElement("div");
+					var entry = first_where(availableTags, "available-tags", tags[i]);
+					if (entry["tag-category"] == mode) {
+						tag.style.backgroundColor = entry["colour"]
+						tag.classList.add("tag");
+						tag.innerHTML = "# " + tags[i];
+						tagBox.appendChild(tag);
+					}
+				}
 			}
-			h1.appendChild(tagBox);
+			addTags("academic", tagBox1);
+			addTags("personal", tagBox2);
+			h1.appendChild(tagBox1);
+			h1.appendChild(tagBox2);
 		}
 	}
 
