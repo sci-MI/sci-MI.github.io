@@ -11,6 +11,8 @@ var staffData;
 var activeTags = [];
 
 var inactiveTagColour = "rgba(0,0,0,0)"
+var inactiveTagColourPersonal = "rgb(180,180,180)"
+var activeTagColourPersonal = "rgb(255,255,255)"
 
 // add more categories here if desired
 var categories = {
@@ -153,6 +155,7 @@ function SectionSearch() {
 			if (availableTags[i]["tag-category"] == mode) {
 				var tag = document.createElement("div");
 				tag.style.backgroundColor = inactiveTagColour
+				tag.style.color = inactiveTagColourPersonal;
 				tag.classList.add("tag");
 				tag.innerHTML = "# " + availableTags[i]["available-tags"];
 				tag.id = availableTags[i]["available-tags"]
@@ -161,11 +164,11 @@ function SectionSearch() {
 					var tagname = e.target.id;
 					if (activeTags.includes(tagname)) {
 						e.target.classList.remove("active");
-						e.target.style.backgroundColor = inactiveTagColour;
+						e.target.style.color = inactiveTagColourPersonal;
 						activeTags = removeAll(activeTags, tagname);
 					} else {
 						e.target.classList.add("active");
-						e.target.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
+						e.target.style.color = activeTagColourPersonal
 						activeTags.push(tagname);
 					}
 					
