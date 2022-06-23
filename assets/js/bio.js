@@ -235,8 +235,27 @@ function Section(header_1=null, roles=[], imgs=[],content=[],tags=[]) {
 					if (entry["tag-category"] == mode) {
 						tag.style.backgroundColor = entry["colour"]
 						tag.classList.add("tag");
+						tag.classList.add(tags[i]);
 						tag.innerHTML = "# " + tags[i];
 						tagBox.appendChild(tag);
+						
+						tag.onclick = function(e) {
+							var tagname = e.target.classList[1];
+							var tagElement = document.getElementById(tagname);
+							if (activeTags.includes(tagname)) {
+								tagElement.classList.remove("active");
+								tagElement.style.backgroundColor = inactiveTagColour;
+								tagElement.style.color = mode == "personal" ? inactiveTagColourPersonal : "white";
+								activeTags = removeAll(activeTags, tagname);
+							} else {
+								tagElement.classList.add("active");
+								tagElement.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
+								tagElement.style.color = mode == "personal" ? activeTagColourPersonal : "white";
+								activeTags.push(tagname);
+							}
+							
+							apply_filter();
+						}
 					}
 				}
 			}
