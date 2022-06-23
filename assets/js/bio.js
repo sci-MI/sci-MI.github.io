@@ -150,28 +150,30 @@ function SectionSearch() {
 	var tagBox2 = document.createElement("div");
 	var addTags = function(mode, tagBox) {
 		for (var i = 0; i < availableTags.length; i++) {
-			var tag = document.createElement("div");
-			tag.style.backgroundColor = inactiveTagColour
-			tag.classList.add("tag");
-			tag.innerHTML = "# " + availableTags[i]["available-tags"];
-			tag.id = availableTags[i]["available-tags"]
-			
-			tag.onclick = function(e) {
-				var tagname = e.target.id;
-				if (activeTags.includes(tagname)) {
-					e.target.classList.remove("active");
-					e.target.style.backgroundColor = inactiveTagColour;
-					activeTags = removeAll(activeTags, tagname);
-				} else {
-					e.target.classList.add("active");
-					e.target.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
-					activeTags.push(tagname);
+			if (availableTags[i]["tag-category"] == mode) {
+				var tag = document.createElement("div");
+				tag.style.backgroundColor = inactiveTagColour
+				tag.classList.add("tag");
+				tag.innerHTML = "# " + availableTags[i]["available-tags"];
+				tag.id = availableTags[i]["available-tags"]
+				
+				tag.onclick = function(e) {
+					var tagname = e.target.id;
+					if (activeTags.includes(tagname)) {
+						e.target.classList.remove("active");
+						e.target.style.backgroundColor = inactiveTagColour;
+						activeTags = removeAll(activeTags, tagname);
+					} else {
+						e.target.classList.add("active");
+						e.target.style.backgroundColor = first_where(availableTags, "available-tags", tagname)["colour"]
+						activeTags.push(tagname);
+					}
+					
+					apply_filter();
 				}
 				
-				apply_filter();
+				tagBox.appendChild(tag);
 			}
-			
-			tagBox.appendChild(tag);
 		}
 	}
 	
