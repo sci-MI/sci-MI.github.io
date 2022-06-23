@@ -58,10 +58,16 @@ function removeAll(arr, value) {
   return arr;
 }
 
+function init_substring(str, substr) {
+	var str = str.toLowerCase();
+	var substr = substr.toLowerCase();
+	return str.includes(substr) && str.indexOf(substr)==0
+}
+
 function apply_filter() {
 	var tokens = search.value == "" ? null : search.value.split(" ");	
 	
-	if (! tokens && activeTags.length == 0) {
+	if (!tokens && activeTags.length == 0) {
 		for (var category in categoryBlocks) {
 			var sectionHead = document.getElementById(category + "-head");
 			sectionHead.style.display = "block";
@@ -81,7 +87,9 @@ function apply_filter() {
 		if (tokens) {
 			var flag = true;
 			for (var t = 0; t < tokens.length; t++) {
-				if (!staffData[k]["first-name"].toLowerCase().includes(tokens[t].toLowerCase()) && !staffData[k]["last-name"].toLowerCase().includes(tokens[t].toLowerCase())) {
+				var firstname = staffData[k]["first-name"]
+				var lastname = staffData[k]["last-name"]
+				if (!init_substring(firstname, tokens[t]) && !init_substring(lastname, tokens[t])) {
 					flag = false;
 					break;
 				}
@@ -135,7 +143,7 @@ function SectionSearch() {
 			return false;
 		}
 	}
-	search.onchange = function() {
+	search.oninput = search.onpropertychange = function() {
 		apply_filter();
 	}
 	searchDiv.appendChild(search);
