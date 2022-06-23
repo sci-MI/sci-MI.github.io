@@ -147,6 +147,7 @@ function SectionSearch() {
 	inner.appendChild(h5);
 	
 	var tagBox1 = document.createElement("div");
+	var tagBox2 = document.createElement("div");
 	var addTags = function(mode, tagBox) {
 		for (var i = 0; i < availableTags.length; i++) {
 			var tag = document.createElement("div");
