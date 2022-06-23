@@ -361,6 +361,8 @@ function init_bioblock(tagsDF, rolesDF, data) {
 
 		var sectionHead = Section(header_1=prettyCategory);
 		sectionHead.id = category + "-head";
+		sectionHead.children[0].style.marginTop = "30%"
+		
 		// add the section head
 		newSection.appendChild(sectionHead);
 			
