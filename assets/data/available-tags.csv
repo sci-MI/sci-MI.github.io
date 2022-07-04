@@ -10,6 +10,7 @@ cog-neuro,"rgb(219, 110, 126)",academic
 cog-sci,"rgb(214, 141, 161)",academic
 comp-sci,"rgb(142, 133, 199)",academic
 computation,"rgb(161, 175, 201)",academic
+education,"rgb(217, 206, 216)",academic
 linguistics,"rgb(213, 219, 149)",academic
 medical,"rgb(170, 126, 138)",academic
 molecular,"rgb(134, 120, 157)",academic
@@ -17,8 +18,10 @@ neurodevelopment,"rgb(240, 141, 191)",academic
 neurology,"rgb(240, 141, 141)",academic
 neuroscience,"rgb(201, 127, 111)",academic
 physics,"rgb(209, 155, 88)",academic
+psychiatry,"rgb(188, 71, 201)",academic
 psychology,"rgb(194, 176, 214)",academic
 public-health,"rgb(224, 180, 132)",academic
+stem-cells,"rgb(182, 186, 95)",academic
 black,,personal
 first-gen,,personal
 genderqueer,,personal 
